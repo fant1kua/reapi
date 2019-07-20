@@ -542,6 +542,16 @@ bool CBasePlayer_HintMessageEx(IReGameHook_CBasePlayer_HintMessageEx *chain, CBa
 	return callForward<bool>(RG_CBasePlayer_HintMessageEx, original, indexOfEdict(pthis->pev), pMessage, duration, bDisplayIfPlayerDead, bOverride);
 }
 
+bool CBasePlayer_SayText(IReGameHook_CBasePlayer_SayText *chain, CBasePlayer *pthis, bool teamonly, const char *text, const char *pszFormat, const char *placeName)
+{
+	auto original = [chain](int _pthis, bool _teamonly, const char *_text, const char *_pszFormat, const char *_placeName)
+	{
+		return chain->callNext(getPrivate<CBasePlayer>(_pthis), _teamonly, _text, _pszFormat, _placeName);
+	};
+
+	return callForward<bool>(RG_CBasePlayer_SayText, original, indexOfEdict(pthis->pev), teamonly, text, pszFormat, placeName);
+}
+
 void CBaseAnimating_ResetSequenceInfo(IReGameHook_CBaseAnimating_ResetSequenceInfo *chain, CBaseAnimating *pthis)
 {
 	auto original = [chain](int _pthis)

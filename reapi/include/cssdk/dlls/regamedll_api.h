@@ -440,6 +440,10 @@ typedef IHookChainRegistry<bool, Vector &, Vector &, entvars_t *, edict_t *> IRe
 typedef IHookChainClass<bool, class CBasePlayer, const char *, float, bool, bool> IReGameHook_CBasePlayer_HintMessageEx;
 typedef IHookChainRegistryClass<bool, class CBasePlayer, const char *, float, bool, bool> IReGameHookRegistry_CBasePlayer_HintMessageEx;
 
+// CBasePlayer::SayText hook
+typedef IHookChainClass<bool, class CBasePlayer, bool, const char *, const char *, const char *> IReGameHook_CBasePlayer_SayText;
+typedef IHookChainRegistryClass<bool, class CBasePlayer, bool, const char *, const char *, const char *> IReGameHookRegistry_CBasePlayer_SayText;
+
 class IReGameHookchains {
 public:
 	virtual ~IReGameHookchains() {}
@@ -549,6 +553,7 @@ public:
 	virtual IReGameHookRegistry_CBasePlayer_SetSpawnProtection *CBasePlayer_SetSpawnProtection() = 0;
 	virtual IReGameHookRegistry_IsPenetrableEntity *IsPenetrableEntity() = 0;
 	virtual IReGameHookRegistry_CBasePlayer_HintMessageEx *CBasePlayer_HintMessageEx() = 0;
+	virtual IReGameHookRegistry_CBasePlayer_SayText *CBasePlayer_SayText() = 0;
 };
 
 struct ReGameFuncs_t {

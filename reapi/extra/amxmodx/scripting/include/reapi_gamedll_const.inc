@@ -754,6 +754,13 @@ enum GamedllFunc_CBasePlayer
 	* Params:           (const this, const message[], Float:duration, bool:bDisplayIfPlayerDead, bool:bOverride)
 	*/
 	RG_CBasePlayer_HintMessageEx,
+
+	/*
+	* Description:      Called when the game prints player message to chat.
+	* Return type:      bool
+	* Params:           (const this, const bool:teamonly, const text[], const pszFormat[], const placeName[])
+	*/
+	RG_CBasePlayer_SayText,
 };
 
 /**

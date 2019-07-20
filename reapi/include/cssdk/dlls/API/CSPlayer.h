@@ -80,9 +80,10 @@ public:
 	virtual void ResetSequenceInfo();
 	virtual void StartDeathCam();
 	virtual bool RemovePlayerItemEx(const char* pszItemName, bool bRemoveAmmo);
- 	virtual void SetSpawnProtection(float flProtectionTime);
+	virtual void SetSpawnProtection(float flProtectionTime);
 	virtual void RemoveSpawnProtection();
 	virtual bool HintMessageEx(const char *pMessage, float duration = 6.0f, bool bDisplayIfPlayerDead = false, bool bOverride = false);
+	virtual bool SayText(bool teamonly, const char *text, const char *pszFormat, const char *placeName);
 
 	CBasePlayer *BasePlayer() const;
 
